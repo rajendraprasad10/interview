@@ -1,0 +1,3 @@
+60 interview questions basic to advanced 
+
+https://www.adaface.com/blog/top-django-interview-questions-with-answers/

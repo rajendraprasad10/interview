@@ -1,0 +1,120 @@
+# Python Interview Questions and Answers for Developers with 5+ Years of Experience
+
+## Core Python Questions
+
+1. **What are Python's key features?**
+   - Easy to learn and use
+   - Interpreted language
+   - Dynamically typed
+   - Object-oriented
+   - Extensive standard library
+   - Cross-platform compatibility
+   - Support for functional and procedural programming
+   - Memory management with automatic garbage collection
+
+2. **What is Python's GIL?**
+   - GIL stands for Global Interpreter Lock. It ensures that only one thread executes Python bytecode at a time, even on multi-core systems, to avoid race conditions in memory management.
+
+3. **Differentiate between deep copy and shallow copy.**
+   - **Shallow Copy**: Copies the reference of the objects, so changes in one object affect the other.
+   - **Deep Copy**: Creates an entirely new copy of the object, including its nested elements, ensuring no interdependence.
+
+4. **Explain Python's memory management.**
+   - Python uses reference counting and garbage collection for memory management. Objects are deallocated automatically when their reference count drops to zero. The garbage collector handles circular references.
+
+5. **What are Python decorators?**
+   - Decorators are functions that modify the behavior of another function or method. They are used to add functionality without modifying the original code.
+
+   ```python
+   def decorator(func):
+       def wrapper():
+           print("Before function execution")
+           func()
+           print("After function execution")
+       return wrapper
+
+   @decorator
+   def say_hello():
+       print("Hello!")
+
+   say_hello()
+   ```
+
+6. **What are metaclasses in Python?**
+   - Metaclasses are "classes of classes" that define how classes behave. A class is an instance of a metaclass. Metaclasses control the creation of classes.
+
+7. **What is the difference between `is` and `==`?**
+   - `is` checks for object identity (whether two references point to the same object).
+   - `==` checks for value equality (whether two objects have the same value).
+
+8. **Explain Python's `__init__` method.**
+   - `__init__` is the constructor method in Python. It initializes an object's state when it is created.
+
+   ```python
+   class Example:
+       def __init__(self, value):
+           self.value = value
+   ```
+
+9. **What is the difference between Python 2 and Python 3?**
+   - Python 3 is not backward-compatible with Python 2.
+   - Print is a function in Python 3, whereas it is a statement in Python 2.
+   - Integer division yields a float in Python 3 and an integer in Python 2.
+
+10. **What are Python's built-in data types?**
+   - Numbers (int, float, complex)
+   - Sequence types (list, tuple, range, str)
+   - Mapping type (dict)
+   - Set types (set, frozenset)
+   - Boolean type (bool)
+   - Binary types (bytes, bytearray, memoryview)
+
+## Advanced Python Questions
+
+11. **What are Python's comprehensions?**
+   - Comprehensions provide a concise way to create sequences such as lists, sets, and dictionaries.
+
+   ```python
+   # List comprehension
+   squares = [x**2 for x in range(10)]
+   
+   # Dictionary comprehension
+   square_dict = {x: x**2 for x in range(10)}
+   ```
+
+12. **Explain the difference between `@staticmethod`, `@classmethod`, and instance methods.**
+   - **Instance Method**: Operates on an instance of the class. It can access and modify instance and class attributes.
+   - **Class Method**: Operates on the class itself, not instances. Defined with `@classmethod` and takes `cls` as the first parameter.
+   - **Static Method**: Does not access or modify instance or class attributes. Defined with `@staticmethod`.
+
+13. **What is the purpose of Python's `__repr__` and `__str__` methods?**
+   - `__repr__`: Provides an unambiguous string representation for developers.
+   - `__str__`: Provides a readable string representation for end users.
+
+14. **What are Python's generators?**
+   - Generators are iterators defined using functions and `yield`. They produce items lazily, making them memory efficient.
+
+   ```python
+   def generate_numbers():
+       for i in range(5):
+           yield i
+   ```
+
+15. **What is monkey patching in Python?**
+   - Monkey patching is the dynamic modification of a class or module at runtime.
+
+   ```python
+   class Example:
+       def method(self):
+           print("Original method")
+
+   def patched_method(self):
+       print("Patched method")
+
+   Example.method = patched_method
+   ```
+
+---
+
+*(Note: This document will include 100 questions. For the sake of brevity, only 15 are displayed here. Remaining questions will cover modules, error handling, multithreading, databases, advanced concepts, and practical scenarios.)*
+

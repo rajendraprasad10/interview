@@ -1,0 +1,385 @@
+How is memory managed in Python?
+
+	Memory management in Python is handled automatically by the Python memory manager. It is responsible for allocating and deallocating memory to objects during the program's execution. Here’s an overview of how memory is managed in Python:
+	
+	1. Memory Allocation
+Python divides memory into private heap space and manages it using the Python memory manager.
+	Private Heap: All Python objects and data structures are stored in the private heap. This heap is not accessible directly to the programmer.
+	Built-in Allocators: Python provides built-in methods such as malloc, calloc, and realloc for memory allocation within the heap.
+	
+	2. Garbage Collection
+Python automatically manages memory through a built-in garbage collector to reclaim memory from objects that are no longer in use.
+
+	Reference Counting:
+Python keeps track of the number of references to each object.
+When an object’s reference count drops to zero, it is eligible for garbage collection.
+
+	Cyclic Garbage Collection:
+Python can detect and clean up cycles of objects that reference each other, even if their reference count is not zero.
+Cycles are handled using the garbage collector (gc module).
+
+	3. Dynamic Typing
+Python variables are dynamically typed, meaning the type of an object is determined at runtime. The memory for objects is allocated dynamically based on their type.
+
+
+
+1. What is Python?
+Python is a high-level, interpreted, general-purpose programming language known for its readability, simplicity, and versatility. It supports multiple programming paradigms like procedural, object-oriented, and functional programming.
+
+2. What are the benefits of using Python?
+Easy to learn and use.
+
+Extensive standard library.
+
+Cross-platform compatibility.
+
+Large and active community support.
+
+Supports multiple programming paradigms.
+
+Ideal for data science, machine learning, web development, and scripting.
+
+3. What is the difference between lists and tuples in Python?
+Feature	List	Tuple
+Mutability	Mutable	Immutable
+Syntax	[1, 2, 3]	(1, 2, 3)
+Performance	Slower	Faster
+Use Cases	Dynamic data	Fixed collections
+
+4. How is memory managed in Python?
+Memory is managed by Python’s private heap and garbage collection system:
+
+Private Heap: All objects are stored here.
+
+Reference Counting: Tracks object usage.
+
+Garbage Collection: Removes unused objects, including cyclic references.
+
+5. What are the tools that help to find bugs or perform static analysis?
+PyLint
+
+Pyflakes
+
+MyPy
+
+Bandit
+
+Flake8
+
+6. What are Python namespaces? Why are they used?
+Namespaces are containers mapping names to objects. They prevent name conflicts by isolating variables and functions. Examples include global, local, and built-in namespaces.
+
+7. Explain how to delete a file in Python.
+Use the os module:
+
+python
+Copy
+Edit
+import os
+os.remove("filename.txt")
+8. What are Python modules? Name some commonly used built-in modules in Python.
+Modules are reusable pieces of Python code. Common built-in modules include:
+
+os
+
+sys
+
+math
+
+datetime
+
+json
+
+9. What is the difference between Python Arrays and lists?
+Feature	Arrays	Lists
+Homogeneity	Homogeneous data	Heterogeneous data
+Module Required	array module	Built-in
+Use Case	Numeric data	General-purpose
+10. Is Django better than Flask?
+It depends on use cases:
+
+Django: Best for large projects requiring built-in features.
+
+Flask: Ideal for lightweight and flexible applications.
+
+11. Mention the differences between Django, Pyramid, and Flask.
+Feature	Django	Pyramid	Flask
+Type	Full-stack	Versatile	Lightweight
+Learning Curve	Steeper	Moderate	Easy
+Use Case	Large projects	Custom solutions	Small projects
+12. What is the difference between NumPy and SciPy?
+NumPy: Focuses on array operations and basic mathematical functions.
+
+SciPy: Built on NumPy, designed for advanced mathematical operations like optimization and statistics.
+
+13. How can you copy an object in Python?
+Use the copy module:
+
+python
+Copy
+Edit
+import copy
+shallow_copy = copy.copy(obj)
+deep_copy = copy.deepcopy(obj)
+14. How can you convert a string?
+Convert string formats using methods like:
+
+Integer: int("123")
+
+Float: float("123.45")
+
+List: list("abc")
+
+15. Is Python and multi-threading a good idea? List some ways to get Python code to run in a parallel way.
+Python’s Global Interpreter Lock (GIL) limits multi-threading for CPU-bound tasks. Alternatives for parallelism:
+
+Multiprocessing
+
+Asyncio
+
+Threading (for I/O-bound tasks)
+
+16. What is monkey patching in Python, and is it ever a good idea?
+Monkey patching is dynamically changing a class or module at runtime. While useful in testing, it’s generally discouraged due to the risk of unintended side effects.
+
+17. What are the most common mistakes made using Python?
+Misusing mutable default arguments in functions.
+
+Neglecting Python’s indentation rules.
+
+Ignoring exceptions.
+
+Forgetting about the GIL in multithreading.
+
+Poor handling of variable scope.
+
+
+
+Python Basics and Advanced Concepts
+What are Python's key features?
+
+Answer:
+
+High-level, interpreted, dynamically-typed.
+
+Strong support for integration with other languages and tools.
+
+Rich standard library and community-contributed modules.
+
+Easy to learn with clear syntax.
+
+What is the difference between deepcopy and copy?
+
+Answer:
+
+copy.copy() creates a shallow copy, while copy.deepcopy() creates a deep copy.
+
+Example:
+
+python
+Copy
+Edit
+import copy
+list1 = [[1, 2], [3, 4]]
+shallow = copy.copy(list1)
+deep = copy.deepcopy(list1)
+list1[0][0] = 99
+print(shallow)  # [[99, 2], [3, 4]]
+print(deep)     # [[1, 2], [3, 4]]
+What is a Python decorator?
+
+Answer: A decorator is a function that modifies the behavior of another function.
+
+Example:
+
+python
+Copy
+Edit
+def my_decorator(func):
+    def wrapper():
+        print("Before the function call")
+        func()
+        print("After the function call")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+say_hello()
+Explain the Global Interpreter Lock (GIL).
+
+Answer: The GIL is a mutex that protects access to Python objects, ensuring only one thread executes Python bytecode at a time. It affects multi-threaded Python programs but can be bypassed using multiprocessing.
+
+OOP Concepts in Python
+What is the difference between @staticmethod and @classmethod?
+
+Answer:
+
+@staticmethod: Does not access or modify class or instance data.
+
+@classmethod: Takes the class as its first argument (cls), can modify the class state.
+
+Example:
+
+python
+Copy
+Edit
+class MyClass:
+    @staticmethod
+    def static_method():
+        print("Static method called")
+
+    @classmethod
+    def class_method(cls):
+        print(f"Class method called from {cls.__name__}")
+
+MyClass.static_method()
+MyClass.class_method()
+What are metaclasses in Python?
+
+Answer: Metaclasses define the behavior of a class. They are classes for classes.
+
+Example:
+
+python
+Copy
+Edit
+class Meta(type):
+    def __new__(cls, name, bases, dct):
+        dct['greet'] = lambda self: print("Hello from", name)
+        return super().__new__(cls, name, bases, dct)
+
+class MyClass(metaclass=Meta):
+    pass
+
+obj = MyClass()
+obj.greet()
+Concurrency and Parallelism
+How do you implement multithreading in Python?
+
+Answer:
+
+Use the threading module.
+
+Example:
+
+python
+Copy
+Edit
+import threading
+
+def print_numbers():
+    for i in range(5):
+        print(i)
+
+thread = threading.Thread(target=print_numbers)
+thread.start()
+thread.join()
+How does Python handle multiprocessing?
+
+Answer: Use the multiprocessing module for true parallelism.
+
+Example:
+
+python
+Copy
+Edit
+from multiprocessing import Process
+
+def worker():
+    print("Worker process")
+
+p = Process(target=worker)
+p.start()
+p.join()
+Python for DevOps
+How do you read and write JSON files in Python?
+
+Answer:
+
+python
+Copy
+Edit
+import json
+
+data = {'key': 'value'}
+# Write JSON
+with open('data.json', 'w') as file:
+    json.dump(data, file)
+
+# Read JSON
+with open('data.json', 'r') as file:
+    data_loaded = json.load(file)
+print(data_loaded)
+How do you automate Docker container management using Python?
+
+Answer: Use the docker SDK for Python.
+
+Example:
+
+python
+Copy
+Edit
+import docker
+
+client = docker.from_env()
+client.containers.run("hello-world", detach=False)
+Web Development and APIs
+How do you build a RESTful API in Python?
+
+Answer: Use frameworks like Django REST Framework or Flask.
+
+Example:
+
+python
+Copy
+Edit
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    return jsonify({'data': 'Hello, World!'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+How do you handle API authentication in Python?
+
+Answer: Use tokens, OAuth, or API keys.
+
+Example with Django REST Framework:
+
+python
+Copy
+Edit
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+Database Management
+How do you connect to a database in Python?
+
+Answer: Use psycopg2 for PostgreSQL or sqlalchemy for ORM.
+
+Example with psycopg2:
+
+python
+Copy
+Edit
+import psycopg2
+
+conn = psycopg2.connect(
+    dbname="test", user="user", password="password", host="localhost"
+)
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM my_table;")
+rows = cursor.fetchall()
+print(rows)
+Advanced Questions
+Explain Python's memory management.
+
+What is the asyncio module?
+
+How do you optimize Python code?
+
+What are Python's best practices for exception handling?
+

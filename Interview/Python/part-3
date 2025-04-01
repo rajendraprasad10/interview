@@ -1,0 +1,41 @@
+1. How long have you spent coding primarily in Python?
+I have been coding primarily in Python for over 5 years. During this time, I’ve worked extensively on developing web applications, automating workflows, building APIs, and integrating systems in diverse domains like warehouse automation and embedded systems.
+
+2. Do you use Python in any of your personal projects?
+Yes, I frequently use Python in personal projects. For example, I’ve developed a data scraper that collects and analyzes information from social media platforms like Twitter and Telegram. Additionally, I’ve built small utilities to automate repetitive tasks, such as file organization and data backups.
+
+3. Tell me something you don’t like about Python.
+One limitation of Python is its slower performance compared to compiled languages like C++ or Java, especially for computationally heavy tasks. However, I mitigate this by using optimized libraries like NumPy and integrating Python with faster languages when necessary.
+
+4. What can you offer us that nobody else can?
+I bring a unique combination of technical expertise and a results-driven mindset. Alongside my proficiency in Python and DevOps, I have a proven track record of optimizing CI/CD pipelines, mentoring juniors, and delivering high-quality solutions under tight deadlines. My experience in warehouse automation and integration with machine learning systems is another edge I offer.
+
+5. Tell me a little about yourself.
+I am a Python/DevOps engineer with over 5 years of experience specializing in building scalable web applications, designing APIs, and optimizing deployments. I’ve led projects that enhanced operational efficiency, mentored teams, and delivered innovative solutions in logistics and warehouse automation. Outside of work, I enjoy exploring open-source tools and contributing to collaborative projects.
+
+6. How would people describe you?
+Colleagues would describe me as a dependable team player with strong problem-solving skills. I’m known for my ability to break down complex challenges into manageable tasks and for fostering a collaborative work environment.
+
+7. Would you say you work better independently or on a team?
+I excel in both scenarios. I enjoy working independently when designing or debugging solutions, as it allows me to focus deeply. At the same time, I thrive in team settings where collaboration and brainstorming lead to innovative ideas.
+
+8. What’s your biggest weakness?
+Sometimes I can be overly detail-oriented, which can slow me down when striving for perfection. However, I’ve learned to balance this by prioritizing tasks effectively and setting realistic deadlines.
+
+9. Describe your work style.
+My work style is organized and methodical. I like to start by fully understanding the requirements, breaking down tasks into smaller chunks, and prioritizing based on impact and deadlines. I ensure constant communication with stakeholders to keep everyone aligned.
+
+10. What do you do in your spare time?
+In my spare time, I enjoy contributing to open-source projects, learning about new technologies, and experimenting with automation tools. I also like reading technical blogs and occasionally engaging in outdoor activities to maintain a work-life balance.
+
+11. What motivates you?
+I’m motivated by solving challenging problems and seeing the impact of my work. Whether it’s optimizing an application to handle higher traffic or automating a repetitive task, the satisfaction of creating value keeps me driven.
+
+12. Where do you see yourself in five years?
+In five years, I see myself taking on a senior technical role where I lead teams in designing innovative solutions. I aim to deepen my expertise in cloud technologies and container orchestration while mentoring others in the field.
+
+13. What project are you most proud of?
+I’m most proud of integrating a machine learning pipeline into a warehouse automation system. The project required real-time updates through WebSockets, handling large-scale data processing, and ensuring system reliability. It significantly improved operational efficiency and reduced human intervention.
+
+14. What can we expect from you in the first three months?
+In the first three months, I will focus on understanding the team, tools, and workflows. I aim to identify areas where I can contribute immediately, such as optimizing processes or solving critical issues. I’ll also ensure seamless collaboration and start adding value to key projects.

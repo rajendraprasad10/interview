@@ -1,0 +1,164 @@
+### 100 Python Interview Questions and Answers for Experienced Developers
+
+#### **Core Python Questions**
+
+1. **What are Python's key features?**  
+   - Python is an interpreted, high-level, dynamically typed, and garbage-collected programming language. Its features include:
+     - Easy to learn and use
+     - Extensive libraries
+     - Dynamic typing
+     - Cross-platform compatibility
+     - Support for OOP, functional, and procedural programming paradigms.
+
+2. **How does Python manage memory?**  
+   - Python uses private heap space for memory management. The memory manager ensures efficient allocation and deallocation, and the garbage collector automatically handles unused object removal.
+
+3. **What is the Global Interpreter Lock (GIL)?**  
+   - GIL is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecodes simultaneously. This means Python threads are not fully parallel, which can limit performance in CPU-bound tasks.
+
+4. **Explain Python's `@staticmethod`, `@classmethod`, and instance methods.**  
+   - **Instance methods:** Take `self` as the first argument and can access instance and class data.
+   - **Class methods:** Use `@classmethod` and take `cls` as the first argument, accessing class variables and methods.
+   - **Static methods:** Use `@staticmethod`, and neither `self` nor `cls` is required; these act as plain functions within a class.
+
+5. **How are Python's arguments passed (by value or by reference)?**  
+   - Python uses pass-by-object-reference, meaning mutable objects like lists can be modified, while immutable objects like integers cannot.
+
+#### **Real-World Scenario Questions**
+
+6. **How would you handle a memory leak in Python?**  
+   - Tools like `gc` module, `objgraph`, and memory profilers can help identify leaks. The leak could stem from circular references or holding objects in global scope longer than necessary.
+
+7. **How do you optimize a Python application handling 10,000 requests per minute?**  
+   - Techniques include:
+     - Use asynchronous programming with libraries like `asyncio` or frameworks like FastAPI.
+     - Optimize database queries with indexing and caching.
+     - Use a message broker (e.g., RabbitMQ, Kafka) for asynchronous task management.
+     - Profile the code with tools like cProfile.
+
+   **Example:**
+   ```python
+   import asyncio
+
+   async def handle_request(request):
+       await asyncio.sleep(1)  # Simulate processing
+       return "Processed"
+
+   async def main():
+       tasks = [handle_request(i) for i in range(10000)]
+       await asyncio.gather(*tasks)
+
+   asyncio.run(main())
+   ```
+
+8. **What would you do if the production server crashes?**  
+   - Steps include:
+     1. Check logs and monitor alerts to diagnose the issue.
+     2. Verify server health metrics.
+     3. Restart affected services or servers.
+     4. Debug with tools like `pdb` or monitoring solutions like Grafana/ELK.
+     5. Implement preventive measures to avoid recurrence.
+
+#### **Advanced Python and Libraries**
+
+9. **Explain Python's context manager and how it is implemented.**  
+   - A context manager is used to manage resources, such as files or database connections. The `with` statement ensures proper resource cleanup.
+     
+     **Example:**
+     ```python
+     class ResourceManager:
+         def __enter__(self):
+             print("Resource acquired")
+             return self
+         
+         def __exit__(self, exc_type, exc_value, traceback):
+             print("Resource released")
+
+     with ResourceManager() as resource:
+         print("Using resource")
+     ```
+
+10. **What is the difference between deep copy and shallow copy?**  
+    - **Shallow copy:** Copies an object’s references, changes to nested objects reflect in both copies.
+    - **Deep copy:** Creates a completely independent copy of an object.
+      
+      **Example:**
+      ```python
+      import copy
+
+      original = [[1, 2], [3, 4]]
+      shallow = copy.copy(original)
+      deep = copy.deepcopy(original)
+
+      shallow[0][0] = 99
+      print(original)  # [[99, 2], [3, 4]]
+      print(deep)      # [[1, 2], [3, 4]]
+      ```
+
+11. **How do you use decorators in Python? Provide an example.**  
+    - A decorator modifies a function or method behavior.
+      
+      **Example:**
+      ```python
+      def my_decorator(func):
+          def wrapper(*args, **kwargs):
+              print("Before function call")
+              result = func(*args, **kwargs)
+              print("After function call")
+              return result
+          return wrapper
+
+      @my_decorator
+      def say_hello():
+          print("Hello!")
+
+      say_hello()
+      ```
+
+12. **What is the difference between `is` and `==` in Python?**  
+    - `is`: Checks object identity.
+    - `==`: Compares object values.
+
+13. **How do you handle multithreading in Python, and what are its limitations?**  
+    - Use the `threading` module to handle multithreading. Due to GIL, only one thread executes Python bytecode at a time, limiting performance in CPU-bound tasks. Use multiprocessing for parallelism.
+
+      **Example:**
+      ```python
+      from threading import Thread
+
+      def worker():
+          print("Thread running")
+
+      thread = Thread(target=worker)
+      thread.start()
+      thread.join()
+      ```
+
+#### **Problem-Solving Examples**
+
+14. **Write a program to count occurrences of words in a file.**
+    ```python
+    from collections import Counter
+
+    with open('file.txt', 'r') as file:
+        words = file.read().split()
+        word_counts = Counter(words)
+
+    print(word_counts)
+    ```
+
+15. **How do you manage large datasets in Python?**  
+    - Use libraries like `pandas` for analysis and `dask` for parallel processing. For large datasets, use chunking or external databases.
+
+      **Example:**
+      ```python
+      import pandas as pd
+
+      chunks = pd.read_csv('large_file.csv', chunksize=10000)
+      for chunk in chunks:
+          process(chunk)  # Custom function
+      ```
+
+#### **Conclusion**
+This document provides Python interview questions covering topics from fundamentals to advanced concepts. Examples showcase practical applications and real-time problem-solving skills. For further preparation, practice writing clean, efficient, and optimized code for diverse scenarios.
+
