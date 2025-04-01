@@ -45,3 +45,7 @@ Space Complexity: O(n) (Extra space for dictionary)'''
 # Example usage
 print(two_sum([2, 7, 11, 15], 9))  # Output: [0, 1]
 
+'''Summary
+Approach	Time Complexity	Space Complexity	Best For
+Brute Force	O(n²)	O(1)	Small inputs
+Hash Map	O(n)	O(n)	Large inputs (Best solution)'''
